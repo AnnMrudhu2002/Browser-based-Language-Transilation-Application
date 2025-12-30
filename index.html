@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Browser Translation Demo</title>
+
+  <!-- Import map -->
+  <script type="importmap">
+    {
+      "imports": {
+        "@xenova/transformers": "https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2/dist/transformers.min.js"
+      }
+    }
+  </script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+
+    .card {
+      background: #ffffff;
+      color: #333;
+      width: 520px;
+      max-width: 95%;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #1e3c72;
+    }
+
+    label {
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+
+    textarea {
+      resize: none;
+    }
+
+    textarea:focus,
+    select:focus {
+      outline: none;
+      border-color: #1e3c72;
+      box-shadow: 0 0 0 2px rgba(30, 60, 114, 0.2);
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #1e3c72;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #16315d;
+    }
+
+    button:disabled {
+      background: #aaa;
+      cursor: not-allowed;
+    }
+
+    .output-box {
+      background: #f5f7fa;
+      border-radius: 8px;
+      padding: 12px;
+      min-height: 80px;
+      margin-top: 16px;
+      white-space: pre-wrap;
+      border: 1px solid #ddd;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 16px;
+      font-size: 12px;
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <h2 id="title">English → French</h2>
+
+    <label for="language">Translate To</label>
+    <select id="language">
+      <option value="French">French</option>
+      <option value="German">German</option>
+      <option value="Spanish">Spanish</option>
+      <option value="Italian">Italian</option>
+      <option value="Portuguese">Portuguese</option>
+      <option value="Dutch">Dutch</option>
+      <option value="Hindi">Hindi</option>
+    </select>
+
+    <label for="input">Input Text</label>
+    <textarea id="input" rows="4">
+I love learning new technologies.
+    </textarea>
+
+    <button id="translate">Translate</button>
+
+    <label style="margin-top:16px;">Translated Output</label>
+    <div id="output" class="output-box"></div>
+
+    <div class="footer">
+      Runs fully in your browser · No server required
+    </div>
+  </div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
